@@ -23,10 +23,4 @@ function kthLargestInBST(t, k) {
     }
   }
   return list[k-1];
-
-
-
-
-
-
 }
