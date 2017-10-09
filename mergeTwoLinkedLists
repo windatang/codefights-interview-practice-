@@ -1,0 +1,19 @@
+// Definition for singly-linked list:
+
+//
+function mergeTwoLinkedLists(l1, l2) {
+  var result =[];
+  while(l1!=null || l2!=null){
+    //console.log(l1 + " " + l2)
+    if( l1==null || (l1!=null && l2!=null&& l1.value > l2.value)){
+      result.push(l2.value)
+      l2 = l2.next;
+    }else{
+      //result = new ListNode(l1.value);
+      result.push(l1.value)
+      l1 = l1.next;
+    }
+    //return result;
+  }
+  return result;
+}
