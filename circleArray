@@ -1,0 +1,44 @@
+function draw(length,start,circle,result=[]){
+    circle = circle?circle:0;
+    start = start?start:1;
+    // length = length?length:start;
+    // const width=num;
+    //first item result[circle][circle]
+    
+    for(var i = 0; i<length ;i++ ){
+        result[circle]?result:result[circle] = [];
+        result[circle][circle + i] = start
+        start++;
+    }
+    
+    //[0,1,2,3,4,5]
+    for(var i = 1; i<length ;i++ ){
+        result[circle + i]?result:result[circle + i] = [];
+        result[circle + i][circle + length -1] = start
+        // result[circle][circle + i] = start
+        start++;
+    }
+    
+    for(var i = 1; i<length ;i++ ){
+        // result[circle]?result:result[circle] = [];
+        result[circle + length -1 ][circle + length - 1 -i] = start
+        // result[circle][circle + i] = start
+        start++;
+    }
+    
+    for(var i = 0; i<length-2 ;i++ ){
+        // result[circle]?result:result[circle] = [];
+        result[length - 2 - i + circle][circle] = start
+        // result[circle][circle + i] = start
+        start++;
+    }
+    debugger
+    if(length-2 <= 0 ){
+       return result;
+        // console.log('result:',result) ;
+    }else {
+        return draw(length-2,start,circle+1,result) 
+    }
+}
+
+result = draw(5)
